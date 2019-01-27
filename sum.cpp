@@ -1,6 +1,7 @@
 #include <iostream>
 using namespace std;
 
+
 class BigInt{
     long *val;
     long length;
