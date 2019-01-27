@@ -1,7 +1,6 @@
 #include <iostream>
 using namespace std;
 
-//Predator's code
 class BigInt{
     long *val;
     long length;
