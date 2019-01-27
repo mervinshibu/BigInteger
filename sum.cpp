@@ -2,6 +2,7 @@
 using namespace std;
 
 
+
 class BigInt{
     long *val;
     long length;
