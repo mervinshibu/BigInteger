@@ -130,6 +130,18 @@ public:
         else
             val[i] = carry;
     }
+
+    void mul(BigInt &a, long b)
+    {
+        BigInt B(b);
+        mul(a,B);
+    }
+
+    void mul(BigInt &a, string b)
+    {
+        BigInt B(b);
+        mul(a,B);
+    }
     void mul(BigInt a, BigInt b)
     {
         length = a.length + b.length;
@@ -156,12 +168,12 @@ public:
 
 int main()
 {
-    BigInt a("99");
+    BigInt a("64");
     //a.display();
 
-    BigInt b("99");
+    BigInt b("64");
     BigInt c;
-    a.add(a,b);
+    a.mul(a,"64");
     a.display();
 
 
