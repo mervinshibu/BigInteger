@@ -93,7 +93,7 @@ public:
         add(a,B);
     }
 
-    void add(BigInt &a, BigInt &b)
+    void add(BigInt a, BigInt b)
     {
         this -> length = (a.length > b.length)?a.length:b.length;
         BigInt *t = NULL;
@@ -130,20 +130,39 @@ public:
         else
             val[i] = carry;
     }
+    void mul(BigInt a, BigInt b)
+    {
+        length = a.length + b.length;
+        val = new long[length];
+        long carry = 0;
+        int i, j;
+        for(i = 0; i < b.length;i++)
+        {
+            carry = 0;
+            for(j = 0; j < a.length; j++)
+            {
+                val[i + j] += carry + (b.val[i] * a.val[j]);
+                carry = val[i + j] / 10;
+                val[i + j] = val[i + j] % 10;
+            }
+            val[i + j] = carry;
+        }
+        while(val[length - 1] == 0)
+        --length;
+    }
 };
 //int max(long a, long b){return (a > b)?a:b;}
 
 
 int main()
 {
-    BigInt a("99999");
+    BigInt a("99");
     //a.display();
 
-    BigInt b("999999");
-    long int n = 999;
+    BigInt b("99");
     BigInt c;
-    c.add(a,b);
-    c.display();
+    a.add(a,b);
+    a.display();
 
 
     return 0;
