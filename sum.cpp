@@ -13,7 +13,7 @@ public:
     BigInt(long n)
     {
         int t = 10;
-        for(length = 1; t < n; ++length )
+        for(length = 1; t <= n; ++length )
         t = t * 10;
         this->val = new long[length];
         t/=10;
@@ -34,7 +34,7 @@ public:
     {
         for(length = 0; s[length] != 0; length++);
             this->val = new long[length];
-        for(int i = 0; i < length; i++)
+        for(long i = 0; i < length; i++)
             val[i] = s[length - 1 - i] - '0';
     }
 
@@ -42,12 +42,12 @@ public:
     {
         this -> length = num.length;
         this -> val = new long[length];
-        for(int i = 0; i < length; i++)
+        for(long i = 0; i < length; i++)
         val[i] = num.val[i];
     }
     void display()
     {
-        for(int i = length - 1; i >= 0; i--)
+        for(long i = length - 1; i >= 0; i--)
         cout << val[i];
         cout << endl;
     }
@@ -100,7 +100,7 @@ public:
         ++length;
         long carry = 0;
         val = new long[length];
-        int l = (a.length < b.length)?a.length:b.length, i;
+        long l = (a.length < b.length)?a.length:b.length, i;
         for(i = 0; i < l; i++)
         {
             val[i] = a.val[i] + b.val[i] + carry;
@@ -131,13 +131,13 @@ public:
             val[i] = carry;
     }
 
-    void mul(BigInt &a, long b)
+    void mul(BigInt a, long b)
     {
         BigInt B(b);
         mul(a,B);
     }
 
-    void mul(BigInt &a, string b)
+    void mul(BigInt a, string b)
     {
         BigInt B(b);
         mul(a,B);
@@ -147,7 +147,7 @@ public:
         length = a.length + b.length;
         val = new long[length];
         long carry = 0;
-        int i, j;
+        long i, j;
         for(i = 0; i < b.length;i++)
         {
             carry = 0;
@@ -161,6 +161,12 @@ public:
         }
         while(val[length - 1] == 0)
         --length;
+
+    }
+
+    void pl()
+    {
+        cout << length << endl;
     }
 };
 //int max(long a, long b){return (a > b)?a:b;}
@@ -168,14 +174,20 @@ public:
 
 int main()
 {
-    BigInt a("64");
+
+    BigInt c(1);
     //a.display();
+    BigInt b(2);
+    for(long i = 2; i <= 4000; i++)
+    {
+        c.mul(c,i);
+    }
+    c.pl();
 
-    BigInt b("64");
-    BigInt c;
-    a.mul(a,"64");
-    a.display();
+    //c.display();
 
+    //c.mul(c,9);
+    c.display();
 
     return 0;
 }
