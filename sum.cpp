@@ -175,13 +175,10 @@ public:
 int main()
 {
 
-    BigInt c(1);
+    BigInt c(956);
     //a.display();
-    BigInt b(2);
-    for(long i = 2; i <= 4000; i++)
-    {
-        c.mul(c,i);
-    }
+    BigInt b(234);
+    c.mul(c,b);
     c.pl();
 
     //c.display();
