@@ -27,8 +27,6 @@ $ g++ -std=c++17 -O2 BigInt.cpp -o bigint_demo
 
 # Run
 $ ./bigint_demo
-n / d = 12729255670758420
-n % d = 49
 ```
 
 You can also add the file to an existing CMake project:
