@@ -74,4 +74,4 @@ For a few hundred to a few thousand digits this implementation is more than fast
 2. Please include unit tests (see `/tests`).
 3. Follow the style existing in `BigInt.cpp` (spaces, not tabs; 100 col).
 
-Ideas welcome: Karatsuba / FFT multiplication, JSON/stream serialisation, CI benchmarks.
+Ideas welcome: Karatsuba / FFT multiplication, larger internal base (e.g. base 10⁹ limbs), JSON/stream serialisation, CI benchmarks.
